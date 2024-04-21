@@ -1,9 +1,12 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography,useTheme , useMediaQuery } from "@mui/material";
 import React from "react";
 import News from "./Newscomponent";
 import Comoditiesdata from "./commodities";
 
 export default function Content(){
+
+    const theme = useTheme();
+    const isXsOrSmScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
     return(
         <>
@@ -21,8 +24,7 @@ export default function Content(){
         <br />   <br /> 
 
         <Box sx={{bgcolor:"#fff",borderRadius:"15px", height:"auto", padding:"30px",boxShadow: "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;"}}>
-        <Stack direction="row">
-
+        <Stack  direction={isXsOrSmScreen ? 'column' : 'row'}>
             <Box flex={5} height="auto" > 
                 <News />
             </Box>

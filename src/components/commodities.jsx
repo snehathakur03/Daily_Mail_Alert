@@ -1,14 +1,19 @@
-import { Box, Stack, Typography,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,  Paper } from "@mui/material"
+import { Box, Stack, Typography,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,  Paper ,useTheme,useMediaQuery } from "@mui/material"
 import React from "react"
 
 
 
 
 export default function Comoditiesdata(){
+
+    const theme = useTheme();
+    const isXsOrSmScreen = useMediaQuery(theme.breakpoints.down("sm"))
+
     return(
         <>
         <Box padding="10px">
-        <Stack direction="row" justifyContent="space-between">
+        <Stack  direction={isXsOrSmScreen ? 'column' : 'row'}  justifyContent="space-between">
+
         <Typography variant="p" color="#0094f2" fontWeight={500} letterSpacing="0.7px" alignContent="center">Commodities Details</Typography>
         <Typography variant="p" textAlign="center" color="#0094f2" fontSize="14.5px" padding="8px 25px" border="1px solid #0094f2" borderRadius="11px" letterSpacing="0.7px">Fri, 24 Apr, 2024</Typography>
         </Stack>
